@@ -14,7 +14,143 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <div id="app">
+        <!------------ HEADER -------------->
+        <header class="dark-green">
+        </header>
+        <!------------ CONTAINER -------------->
+        <div class="container">
+
+            <!------------ ASIDE SECTION -------------->
+            <aside class="ms-aside red">
+
+                <!------------ TOP ASIDE -------------->
+                <div class="top-aside yellow pdg-lr-20">
+
+                    <div class="user-profile  gap-10">
+                        <img src="/img/avatar_1.jpg" alt="sofia.alt" class="avatar-user">
+                        <span class="sz-font-12"><strong>Sofia</strong></span>
+                    </div>
+
+                    <div class="icons-top-aside pdg-20 gap-10">
+
+                        <div>
+                            <i class="fa-solid fa-circle-notch cursor"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-message cursor"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-ellipsis-vertical cursor"></i>
+                        </div>
+                    
+                    </div>
+
+                </div>
+                
+                <!------------ BOTTOM ASIDE -------------->
+                <div class="bottom-aside">
+
+                    <div class="active-desk pdg-lr-20 gap-10 dark-green">
+                        <div>
+                            <span class="circle">
+                                <i class="fa-solid fa-bell-slash sz-font-12"></i>
+                            </span>
+                        </div>
+
+                        <div class="active-desk-text">
+                            <span class="sz-font-12">
+                                <strong>Ricevi notifche di nuovi messaggi</strong>
+                            </span>
+                            <span class="sz-font-12 text-underline">
+                                <small>Attiva notifiche desktop</small>
+                            </span>
+                        </div>
+
+                    </div>
+ 
+                    <div class="input-search pdg-lr-20 orange">
+                        <button class="btn-search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input type="search" placeholder="Cerca o inizia una nuova chat" class="search-bar sz-font-12">
+                    </div>
+
+                    <div class="contact-list">
+
+                        <div v-for="singleContact, index in contacts" class="contact-bar pdg-lr-20 yellow">
+                            <div class="contact gap-10">
+                                <img src="/img/avatar{{ singleContact.avatar }}.jpg" alt="{{singleContact.name}}.alt" class="avatar-contact">
+                                <div class="contact-info">
+                                    <span class="sz-font-12">
+                                        <strong>{{ singleContact.name }}</strong>
+                                    </span>
+                                    <span class="sz-font-12">
+                                        <small>Ultimo messaggio inviato</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="contact-bar pdg-lr-20 yellow">
+                            <div class="contact gap-10">
+                                <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
+                                <div class="contact-info">
+                                    <span class="sz-font-12">
+                                        <strong>Michele</strong>
+                                    </span>
+                                    <span class="sz-font-12">
+                                        <small>Ultimo messaggio inviato</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-bar pdg-lr-20 yellow">
+                            <div class="contact gap-10">
+                                <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
+                                <div class="contact-info">
+                                    <span class="sz-font-12">
+                                        <strong>Michele</strong>
+                                    </span>
+                                    <span class="sz-font-12">
+                                        <small>Ultimo messaggio inviato</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div> -->
+
+                                 
+                                  
+                    </div>                    
+
+                </div>
+
+            </aside>
+
+            <!------------ MAIN SECTION -------------->
+            <main class="ms-main blue">
+
+                <div class="top-main pdg-lr-20 orange">
+
+                    <div class="user-profile gap-10">
+                        <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-user">
+                        <div class="contact-info">
+                            <span class="sz-font-12">
+                                <strong>Michele</strong>
+                            </span>
+                            <span class="sz-font-12">
+                                <small>Ultimo accesso oggi alle 12:00</small>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
 
 
 
