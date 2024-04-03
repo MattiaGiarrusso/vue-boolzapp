@@ -23,10 +23,10 @@
         <div class="container">
 
             <!------------ ASIDE SECTION -------------->
-            <aside class="ms-aside red">
+            <aside class="ms-aside white">
 
                 <!------------ TOP ASIDE -------------->
-                <div class="top-aside yellow pdg-lr-20">
+                <div class="top-aside grey pdg-lr-20">
 
                     <div class="user-profile  gap-10">
                         <img src="/img/avatar_1.jpg" alt="sofia.alt" class="avatar-user">
@@ -52,7 +52,7 @@
                 <!------------ BOTTOM ASIDE -------------->
                 <div class="bottom-aside">
 
-                    <div class="active-desk pdg-lr-20 gap-10 dark-green">
+                    <div class="active-desk pdg-lr-20 gap-10 light-blue">
                         <div>
                             <span class="circle">
                                 <i class="fa-solid fa-bell-slash sz-font-12"></i>
@@ -63,14 +63,14 @@
                             <span class="sz-font-12">
                                 <strong>Ricevi notifche di nuovi messaggi</strong>
                             </span>
-                            <span class="sz-font-12 text-underline">
+                            <a href="" class="sz-font-12 cursor">
                                 <small>Attiva notifiche desktop</small>
-                            </span>
+                            </a>
                         </div>
 
                     </div>
  
-                    <div class="input-search pdg-lr-20 orange">
+                    <div class="input-search pdg-lr-20 white">
                         <button class="btn-search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -79,9 +79,9 @@
 
                     <div class="contact-list">
 
-                        <div v-for="singleContact, index in contacts" class="contact-bar pdg-lr-20 yellow">
+                        <div v-for="singleContact, index in contacts" class="contact-bar pdg-lr-20 grey">
                             <div class="contact gap-10">
-                                <img src="/img/avatar{{ singleContact.avatar }}.jpg" alt="{{singleContact.name}}.alt" class="avatar-contact">
+                                <img :src="'img/avatar' + singleContact.avatar + '.jpg'" alt="{{singleContact.name}}.alt" class="avatar-contact">
                                 <div class="contact-info">
                                     <span class="sz-font-12">
                                         <strong>{{ singleContact.name }}</strong>
@@ -130,9 +130,9 @@
             </aside>
 
             <!------------ MAIN SECTION -------------->
-            <main class="ms-main blue">
+            <main class="ms-main">
 
-                <div class="top-main pdg-lr-20 orange">
+                <div class="top-main pdg-lr-20 grey">
 
                     <div class="user-profile gap-10">
                         <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-user">
@@ -144,6 +144,29 @@
                                 <small>Ultimo accesso oggi alle 12:00</small>
                             </span>
                         </div>
+                    </div>
+
+                </div>
+
+                <div class="bottom-main">
+
+                    <div class="chat-container">
+                        
+                    </div>
+
+                    <div class="usermessage-container color-message pdg-lr-20">
+                        
+                            <button class="btn-message">
+                                <i class="fa-solid fa-face-smile"></i>
+                            </button>
+
+                            <input type="text" placeholder="Scrivi un messaggio" class="text-message">
+
+                            <button class="btn-message">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                        
+
                     </div>
 
                 </div>

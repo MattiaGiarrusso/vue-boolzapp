@@ -10,6 +10,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-color: #DADBD4;
 }
 
 header {
@@ -42,7 +43,7 @@ header {
 .circle {
     height: 35px;
     width: 35px;
-    background-color: #bbb;
+    background-color: white;
     border-radius: 50%;
     line-height:35px;
     text-align:center;
@@ -68,23 +69,23 @@ header {
 /*------- COLORS -------*/
 
 .dark-green {
-    background-color: darkgreen;
+    background-color: #009688;
 }
 
-.red {
-    background-color: red;
+.light-blue {
+    background-color: #8EDAFC;
 }
 
-.blue {
-    background-color: blue;
+.grey {
+    background-color: #EAEAEA;
 }
 
-.yellow {
-    background-color: yellow;
+.white {
+    background-color: white;
 }
 
-.orange {
-    background-color: orange;
+.color-message {
+    background-color: #F3EEEA;
 }
 
 /*------- BUTTONS -------*/
@@ -96,19 +97,29 @@ header {
     cursor: pointer;
 }
 
+.btn-message {
+    background-color: transparent;
+    font-size: 18px;
+    border: transparent;
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
 /*------- LAYOUT -------*/
 .container {
     margin: 0 auto;
     width: 900px;
     height: 540px;
     display: flex;
-    background-color: aquamarine;
+    border: 1px solid #D6D6D6;
+    border-top: none;
 }
 
 /*------- ms aside -------*/
 
 .ms-aside {
     width: calc(100% / 3);
+    border-right: 1px solid #D6D6D6;
 }
 
 .top-aside {
@@ -117,6 +128,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.top-aside i {
+    color: #B1B1B1;
 }
 
 .user-profile {
@@ -136,6 +151,15 @@ header {
     align-items: center;
 }
 
+.active-desk i {
+    color:#8EDAFC;
+    font-size: 16px;
+}
+
+.active-desk a {
+    color: #6E7577;
+}
+
 .active-desk-text {
     display: flex;
     flex-direction: column;
@@ -152,7 +176,6 @@ header {
     border: none;
     border-radius: 20px;
     padding: 4px 16px;
-    cursor: pointer;
 }
 
 .contact-bar {
@@ -174,6 +197,7 @@ header {
 
 .ms-main {
     width: calc((100% / 3) * 2);
+    height: 100%;
 }
 
 .top-main {
@@ -182,5 +206,35 @@ header {
     display: flex;
     justify-content: flex-start;
 }
+
+.bottom-main {
+    width: 100%;
+    height: calc(100% - 52px);
+}
+
+.chat-container {
+    width: 100%;
+    height: 90%;
+    background-image: url(../img/mine.jpg);
+}
+
+.usermessage-container {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.text-message {
+    width: 80%;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;   
+}
+
+.usermessage-container button {
+    color: #6E7577;
+} 
 
 
