@@ -6,6 +6,13 @@
 // - Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // - Click sul contatto mostra la conversazione del contatto cliccato
 
+// Milestone 3
+// - Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// - Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+
+// Milestone 4
+// - Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
 const { createApp } = Vue;
 
 createApp({
@@ -76,7 +83,7 @@ createApp({
               },
               {
                 name: 'Luisa',
-                avatar: '_4',
+                avatar: '_6',
                 visible: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
@@ -91,8 +98,37 @@ createApp({
                 ],
               },
             ],
+            activeContact: 0,
+            messageText: '',  
         };
     },
     methods: {
+    // MS1 -  Funzione che attiva il contatto con la relativa chat
+      ActiveIndexContact(index) {
+        this.activeContact = index;
+      },
+    // MS3 - Funzione per inserire un messaggio scritto nel campo input in una chat
+      AddNewMessage(index){
+
+        const newSentMessage = {
+          message: this.messageText,
+          status: 'sent'          
+        };
+        
+        if (this.messageText.length > 0 ) {
+          this.contacts[index].messages.push(newSentMessage);
+          this.messageText = '';
+        }
+        
+        // Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo
+        setTimeout(() => {
+          
+          this.contacts[index].messages.push({
+            message: 'Ok!',
+            status: 'received',
+          });
+        }, 1000);
+
+      },
     }
 }).mount('#app');

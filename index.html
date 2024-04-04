@@ -19,6 +19,7 @@
         <!------------ HEADER -------------->
         <header class="dark-green">
         </header>
+
         <!------------ CONTAINER -------------->
         <div class="container">
 
@@ -29,7 +30,7 @@
                 <div class="top-aside grey pdg-lr-20">
 
                     <div class="user-profile  gap-10">
-                        <img src="/img/avatar_1.jpg" alt="sofia.alt" class="avatar-user">
+                        <img src="/img/avatar_io.jpg" alt="sofia.alt" class="avatar-user">
                         <span class="sz-font-12"><strong>Sofia</strong></span>
                     </div>
 
@@ -79,12 +80,12 @@
 
                     <div class="contact-list">
 
-                        <div v-for="singleContact, index in contacts" class="contact-bar pdg-lr-20 grey">
+                        <div class="contact-bar pdg-lr-20 cursor" v-for="contact, index in contacts" :class="{'active': index == activeContact}" @click="ActiveIndexContact(index)">
                             <div class="contact gap-10">
-                                <img :src="'img/avatar' + singleContact.avatar + '.jpg'" alt="{{singleContact.name}}.alt" class="avatar-contact">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="{{singleContact.name}}" class="avatar-contact">
                                 <div class="contact-info">
                                     <span class="sz-font-12">
-                                        <strong>{{ singleContact.name }}</strong>
+                                        <strong>{{ contact.name }}</strong>
                                     </span>
                                     <span class="sz-font-12">
                                         <small>Ultimo messaggio inviato</small>
@@ -92,8 +93,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- <div class="contact-bar pdg-lr-20 yellow">
+                        
+                        <div class="contact-bar pdg-lr-20 yellow">
                             <div class="contact gap-10">
                                 <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
                                 <div class="contact-info">
@@ -119,9 +120,21 @@
                                     </span>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
-                                 
+                        <div class="contact-bar pdg-lr-20 yellow">
+                            <div class="contact gap-10">
+                                <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
+                                <div class="contact-info">
+                                    <span class="sz-font-12">
+                                        <strong>Michele</strong>
+                                    </span>
+                                    <span class="sz-font-12">
+                                        <small>Ultimo messaggio inviato</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                                   
                     </div>                    
 
@@ -135,10 +148,10 @@
                 <div class="top-main pdg-lr-20 grey">
 
                     <div class="user-profile gap-10">
-                        <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-user">
+                        <img :src="'img/avatar' + contacts[activeContact].avatar + '.jpg'" alt="contacts[activeContact].name" class="avatar-user">
                         <div class="contact-info">
                             <span class="sz-font-12">
-                                <strong>Michele</strong>
+                                <strong>{{ contacts[activeContact].name }}</strong>
                             </span>
                             <span class="sz-font-12">
                                 <small>Ultimo accesso oggi alle 12:00</small>
@@ -151,6 +164,9 @@
                 <div class="bottom-main">
 
                     <div class="chat-container">
+                        <div class="message" v-for="message, index in contacts[activeContact].messages" :class="message.status">
+                            <span>{{ message.message }}</span>
+                        </div>
                         
                     </div>
 
@@ -160,7 +176,7 @@
                                 <i class="fa-solid fa-face-smile"></i>
                             </button>
 
-                            <input type="text" placeholder="Scrivi un messaggio" class="text-message">
+                            <input type="text" placeholder="Scrivi un messaggio" class="text-message" v-model="messageText" @keyup.enter="AddNewMessage(activeContact)">
 
                             <button class="btn-message">
                                 <i class="fa-solid fa-microphone"></i>
