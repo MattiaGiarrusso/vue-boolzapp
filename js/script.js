@@ -97,6 +97,59 @@ createApp({
                   }
                 ],
               },
+              {
+                name: 'Francesca',
+                avatar: '_io',
+                visible: true,
+                messages: [{
+                    date: '10/01/2020 15:30:55',
+                    message: 'Prendo i biglietti per Padova?',
+                    status: 'sent'
+                  },
+                  {
+                    date: '10/01/2020 15:50:00',
+                    message: 'Si, ma solo quando ci sono le promo',
+                    status: 'received'
+                  }
+                ],
+              },
+              {
+                name: 'Vincenzo',
+                avatar: '_8',
+                visible: true,
+                messages: [{
+                    date: '10/01/2020 15:30:55',
+                    message: 'Non dimenticarti di chiederle il numero di telefono',
+                    status: 'sent'
+                  },
+                  {
+                    date: '10/01/2020 15:50:00',
+                    message: 'Sarà forse la prima cosa che chiedo',
+                    status: 'received'
+                  }
+                ],
+              },
+              {
+                name: 'Luciano',
+                avatar: '_7',
+                visible: true,
+                messages: [{
+                    date: '28/03/2020 10:10:40',
+                    message: 'Ci vediamo stasera?',
+                    status: 'received'
+                  },
+                  {
+                    date: '28/03/2020 10:20:10',
+                    message: 'Okay, ma dopo cena',
+                    status: 'sent'
+                  },
+                  {
+                    date: '28/03/2020 16:15:22',
+                    message: 'Va bene, ci vediamo al solito posto',
+                    status: 'received'
+                  }
+                ],
+              },
             ],
             activeContact: 0,
             messageText: '',
@@ -144,8 +197,11 @@ createApp({
             };
           };
 
+        } else if (this.search === '') {
+          for (let i = 0; i < this.contacts.length; i++) {
+            this.contacts.visible = true;
+          }
         }
-
-      }
-    }
+      },
+    },
 }).mount('#app');

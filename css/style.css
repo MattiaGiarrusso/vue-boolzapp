@@ -27,6 +27,51 @@ header {
     font-size: 12px;
 }
 
+/* ------- CUSTOM SCROLLBAR --------*/
+
+/********** scroll contacts list ***********/
+ /* width */
+.contacts-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+.contacts-list::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+  }
+  
+  /* Handle */
+.contacts-list::-webkit-scrollbar-thumb {
+    background-color: #B1B1B1;
+    border-radius: 10px;
+  }
+
+.contacts-list::-webkit-scrollbar-thumb:active {
+    background-color: #009688;
+  }
+
+/********** scroll chat container ***********/  
+  /* width */
+.chat-container::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+.chat-container::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+  }
+  
+  /* Handle */
+.chat-container::-webkit-scrollbar-thumb {
+    background-color: #B1B1B1;
+    border-radius: 10px;
+  }
+
+.chat-container::-webkit-scrollbar-thumb:active {
+    background-color: #009688;
+  }
+
+
 /*------- UTILITY -------*/
 .cursor {
     cursor: pointer;
