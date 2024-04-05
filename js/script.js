@@ -13,7 +13,15 @@
 // Milestone 4
 // - Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
 
+// BONUS:
+// Milestone 5
+// - Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+// - Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+
 const { createApp } = Vue;
+
+// MS5 - Bonus 2 - per visualizzare l'ora e l'ultimo messaggio ricevuto o inviato, creo la variabile dt per richiamare la libreria luxon
+const dt = luxon.DateTime;
 
 createApp({
     data() {
@@ -165,6 +173,8 @@ createApp({
       AddNewMessage(index){
 
         const newSentMessage = {
+          // MS5 - BONUS 2 - inserisco nella chiave 'date' del nuovo messagio la stringa di luxon delle data e dell'ora locale 
+          date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
           message: this.messageText,
           status: 'sent'          
         };
@@ -178,6 +188,8 @@ createApp({
         setTimeout(() => {
           
           this.contacts[index].messages.push({
+            // MS5 - BONUS 2 - replico l'inserimento della stringa anche nella chiave 'date' del messaggio automatico
+            date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
             message: 'Ok!',
             status: 'received',
           });
@@ -186,19 +198,26 @@ createApp({
       },
       // MS4 - Funzione per la ricerca utenti: scrivendo qualcosa nell’input di ricerca, filtra la lista dei contatti
       filteredContacts() {
+        // due condizioni per far funzionare la funzione
 
+        // 1° condizione: se la stringa della chiave search non è vuota...
         if (this.search !== '') {
-
+          // per ogni contatto presente nella lista...
           for (let i = 0; i < this.contacts.length; i++) {
+            // se ogni elemento di name è incluso in search...
             if (this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase())) {
+              // la chiave visible è 'true'
               this.contacts[i].visible = true;
             } else {
+              // altrimenti è 'false'
               this.contacts[i].visible = false;
             };
           };
-
+          
+        // 2° condizione: se la stringa della chiave search è vuota...
         } else if (this.search === '') {
           for (let i = 0; i < this.contacts.length; i++) {
+            // la chiave visible è 'true'
             this.contacts.visible = true;
           }
         }
