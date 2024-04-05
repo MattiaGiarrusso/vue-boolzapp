@@ -91,8 +91,8 @@
                                     <span class="sz-font-12">
                                         <strong>{{ contact.name }}</strong>
                                     </span>
-                                    <span class="sz-font-12">
-                                        <small>Ultimo messaggio inviato</small>
+                                    <span class="sz-font-12" v-if="contact.messages.length > 0">
+                                        <small>{{ contact.messages.slice(-1)[0].message }}</small>
                                     </span>
                                 </div>
                             </div>
@@ -165,6 +165,20 @@
                                 <small>Ultimo accesso oggi alle 12:00</small>
                             </span>
                         </div>
+                    </div>
+
+                    <div class="icons-top-main pdg-20 gap-10">
+
+                        <div>
+                            <i class="fa-solid fa-magnifying-glass cursor"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-paperclip cursor"></i>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-ellipsis-vertical cursor"></i>
+                        </div>
+
                     </div>
 
                 </div>
