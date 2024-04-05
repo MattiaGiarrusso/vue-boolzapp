@@ -179,7 +179,7 @@ header {
     padding: 4px 16px;
 }
 
-.contact-list {
+.contacts-list {
     width: 100%;
     height: calc(500px - 152px);
     overflow-y: auto;

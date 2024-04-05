@@ -99,7 +99,8 @@ createApp({
               },
             ],
             activeContact: 0,
-            messageText: '',  
+            messageText: '',
+            search: '',  
         };
     },
     methods: {
@@ -130,5 +131,21 @@ createApp({
         }, 1000);
 
       },
+      // MS4 - Funzione per la ricerca utenti: scrivendo qualcosa nell’input di ricerca, filtra la lista dei contatti
+      filteredContacts() {
+
+        if (this.search !== '') {
+
+          for (let i = 0; i < this.contacts.length; i++) {
+            if (this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase())) {
+              this.contacts[i].visible = true;
+            } else {
+              this.contacts[i].visible = false;
+            };
+          };
+
+        }
+
+      }
     }
 }).mount('#app');
