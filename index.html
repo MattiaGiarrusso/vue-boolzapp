@@ -52,7 +52,8 @@
                 
                 <!------------ BOTTOM ASIDE -------------->
                 <div class="bottom-aside">
-
+                    
+                    <!------------ nofication desktop bar -------------->
                     <div class="active-desk pdg-lr-20 gap-10 light-blue">
                         <div>
                             <span class="circle">
@@ -70,16 +71,19 @@
                         </div>
 
                     </div>
- 
+                    
+                    <!------------ search chat bar -------------->
                     <div class="input-search pdg-lr-20 white">
                         <button class="btn-search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                         <input type="search" placeholder="Cerca o inizia una nuova chat" class="search-bar sz-font-12">
                     </div>
-
+                    
+                    <!------------ contact list -------------->
                     <div class="contact-list">
 
+                        <!------------ contact bar -------------->
                         <div class="contact-bar pdg-lr-20 cursor" v-for="contact, index in contacts" :class="{'active': index == activeContact}" @click="ActiveIndexContact(index)">
                             <div class="contact gap-10">
                                 <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="{{singleContact.name}}" class="avatar-contact">
@@ -94,6 +98,22 @@
                             </div>
                         </div>
                         
+                        <!------------ contact bar example -------------->
+                        <div class="contact-bar pdg-lr-20 yellow">
+                            <div class="contact gap-10">
+                                <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
+                                <div class="contact-info">
+                                    <span class="sz-font-12">
+                                        <strong>Michele</strong>
+                                    </span>
+                                    <span class="sz-font-12">
+                                        <small>Ultimo messaggio inviato</small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!------------ contact bar example 2 -------------->
                         <div class="contact-bar pdg-lr-20 yellow">
                             <div class="contact gap-10">
                                 <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
@@ -108,20 +128,7 @@
                             </div>
                         </div>
 
-                        <div class="contact-bar pdg-lr-20 yellow">
-                            <div class="contact gap-10">
-                                <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
-                                <div class="contact-info">
-                                    <span class="sz-font-12">
-                                        <strong>Michele</strong>
-                                    </span>
-                                    <span class="sz-font-12">
-                                        <small>Ultimo messaggio inviato</small>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!------------ contact bar example 3 -------------->
                         <div class="contact-bar pdg-lr-20 yellow">
                             <div class="contact gap-10">
                                 <img src="img/avatar_2.jpg" alt="michele.alt" class="avatar-contact">
@@ -145,6 +152,7 @@
             <!------------ MAIN SECTION -------------->
             <main class="ms-main">
 
+                <!------------ top main chat contact selected -------------->
                 <div class="top-main pdg-lr-20 grey">
 
                     <div class="user-profile gap-10">
@@ -161,8 +169,10 @@
 
                 </div>
 
+                <!------------ bottom main chat contact selected -------------->
                 <div class="bottom-main">
 
+                    <!------------ chat container -------------->
                     <div class="chat-container">
                         <div class="message" v-for="message, index in contacts[activeContact].messages" :class="message.status">
                             <span>{{ message.message }}</span>
@@ -170,6 +180,7 @@
                         
                     </div>
 
+                    <!------------ user message input bar -------------->
                     <div class="usermessage-container color-message pdg-lr-20">
                         
                             <button class="btn-message">
@@ -194,7 +205,8 @@
 
 
     </div>
-
+    
+    <!------------ SCRIPT AREA (VUE/JS) -------------->
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
