@@ -161,7 +161,7 @@ createApp({
             ],
             activeContact: 0,
             messageText: '',
-            search: '',  
+            search: '',
         };
     },
     methods: {
@@ -221,6 +221,10 @@ createApp({
             this.contacts.visible = true;
           }
         }
+      },
+      // Bonus1 - Funzione che cancella il messaggio: cliccando sul tasto del cestino, viene eliminato il messaggio selezionato
+      deleteMessage(index) {
+        this.contacts[this.activeContact].messages.splice(index, 1);
       },
     },
 }).mount('#app');
